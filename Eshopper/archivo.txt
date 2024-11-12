@@ -1,0 +1,7 @@
+1, Blusa Morada,100,Damas
+2, Lentas Redondos,350,Caballero
+3, Playera Negra,200,Caballero
+4, Pantalón Cargo,420,Dama
+5, Vestido Blanco/Negro,250,Damas
+6, Botas,500,Damas
+7, Chamarra,450,Caballero
