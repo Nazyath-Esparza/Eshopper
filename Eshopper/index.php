@@ -199,7 +199,7 @@
 						<h2 class="title text-center">Catálogo de Productos</h2>
 						<?php 
 						 $n=4;
-       for ($i=0; $i < $iProductos ; $i++) { 
+       for ($i=1; $i < $iProductos ; $i++) { 
 						?>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
