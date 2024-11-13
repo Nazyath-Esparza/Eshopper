@@ -1,4 +1,5 @@
 <?php 
+//Todo este documento nos ayuda a crear un pequeño apartado en nuestro código principal para agregar nuevos productos a nuestro punto de venta. Se conecta a la base de datos y por medio de un formulario, se agrega a esta y a un archivo .txt para poder hacer las modificadiones necesarias
    const GUARDAR = 'Guardar';
    const VER_DATOS = 'Ver datos';
    $datos = [];

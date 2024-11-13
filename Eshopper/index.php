@@ -6,6 +6,8 @@
     array(100, 350, 200, 420, 250, 500, 450),                             //El Precio
     array("Dama", "Caballero", "Caballero", "Dama", "Dama", "Dama", "Caballero"));   //Categoría
   $iProductos = 7; //Indica el No. de Productos*/
+
+ //Este segmento es el encargado de el almacenaje de los productos existentes en nuestro punto de venta, guarda sus datos en un documento .txt como lo son el ID, producto, precio y categoría
  $BDProductos = array(0,"CERO",0,"");
  $i=0; $iProductos=1; 
  $filas=file('archivo.txt'); 
@@ -19,10 +21,12 @@
     $iProductos++;
   }
 
+//Este segmento usa la base de datos para almacenar las existencias de cada producto en nuestro punto de venta
   $BDAlmacen = array( 
     array(1, 2, 3, 4, 5, 6, 7), //El IDProducto
     array(0,10, 5,15, 3,8, 13)); //Las Existencias
 
+//Por ultimo, este segmento muestra las ventas realizadas en nuestro punto de venta, agregando el ID del producto, la cantidad vendida, el monto pagado y por ultimo las ventas hasta el momento
   $iAlmacen = 2; //El No. de existencias
   $BDVentas = array(
     array(2,3), //El IDProducto
@@ -198,6 +202,7 @@
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Catálogo de Productos</h2>
 						<?php 
+						//En este pequeño segmento se crea un ciclo for con el cuál se van a agregar a la interfaz gráfica los productos de nuestro punto de venta
 						 $n=4;
        for ($i=1; $i < $iProductos ; $i++) { 
 						?>
@@ -206,6 +211,7 @@
 								<div class="single-products">
 										<div class="productinfo text-center">
 											<?php
+											//En este segmento, desde una carpeta ya existente en nuestro proyecto que contiene todas las imágenes necesarias y el ciclo for anterior, se vann a seleccionar y agregar a nuestro interfaz
 											$img = $BDProductos[$n];
 											?>
 											<img src="images/home2/<?php echo $img;?>.jpg" alt="" width="210" height="180" alt=""/>
@@ -227,6 +233,7 @@
 							</div>
 						</div>
 						<?php
+						//por ultimo, aquí se cierra nuestro ciclo for, solamente repitiendose la cantidad de veces necesaria para agregar todos nuestros productos registrados
 						$n+=4;
 						 }
 						 ?>
@@ -236,7 +243,7 @@
 					
 					<div class="recommended_items"><!--recommended_items-->
 						<h2 class="title text-center">Productos Recomendados</h2>
-						
+						<?php // En todo este segmento, se agregan productos extra a los de la página inicial, se repite dependiendo de cuantos productos especiales tengamos?>
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
 								<div class="item active">	
