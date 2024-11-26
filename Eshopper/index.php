@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
   /*$BDProductos = array( 
-    array(1, 2, 3, 4, 5, 6, 7 ),                                       //El ID
+    array(1, 2, 3, 4, 5, 6, 7 ),  //El ID
     array("Blusa", "Lentes", "Playera", "Pantalón", "Vestido", "Zapatos", "Sudadera"), //La Descripción
-    array(100, 350, 200, 420, 250, 500, 450),                             //El Precio
-    array("Dama", "Caballero", "Caballero", "Dama", "Dama", "Dama", "Caballero"));   //Categoría
+    array(100, 350, 200, 420, 250, 500, 450), //El Precio
+    array("Dama", "Caballero", "Caballero", "Dama", "Dama", "Dama", "Caballero")); //Categoría
   $iProductos = 7; //Indica el No. de Productos*/
 
  //Este segmento es el encargado de el almacenaje de los productos existentes en nuestro punto de venta, guarda sus datos en un documento .txt como lo son el ID, producto, precio y categoría

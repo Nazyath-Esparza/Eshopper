@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Checkout | E-Shopper</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/price-range.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
+	 <meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <meta name="description" content="">
+	 <meta name="author" content="">
+	 <title>Checkout | E-Shopper</title>
+	 <link href="css/bootstrap.min.css" rel="stylesheet">
+	 <link href="css/font-awesome.min.css" rel="stylesheet">
+	 <link href="css/prettyPhoto.css" rel="stylesheet">
+	 <link href="css/price-range.css" rel="stylesheet">
+	 <link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->       
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+	 <!--[if lt IE 9]>
+	 <script src="js/html5shiv.js"></script>
+	 <script src="js/respond.min.js"></script>
+	 <![endif]-->       
+	 <link rel="shortcut icon" href="images/ico/favicon.ico">
+	 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+	 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+	 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+	 <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
 <body>
@@ -78,13 +78,13 @@
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="index.php">Inicio</a></li>
 								<li class="dropdown"><a href="#">Comprar<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.php">Productos</a></li>				
+												<ul role="menu" class="sub-menu">
+													 <li><a href="shop.php">Productos</a></li>				
 										<li><a href="checkout.php">Pagar</a></li> 
 										<li><a href="cart.php">Carrito</a></li> 
 										<li><a href="login.php">Login</a></li> 
-                                    </ul>
-                                </li>							
+												</ul>
+										  </li>							
 							</ul>
 						</div>
 					</div>
@@ -183,11 +183,12 @@
 					</thead>
 					<tbody>
 						<?php 
-   if(file_exists('carritocompras.txt')){
-      $content = trim(file_get_contents('carritocompras.txt'), PHP_EOL);
-      $lineas = explode(PHP_EOL, $content);
-      foreach($lineas as $linea){
-         list($productoE, $precioE) = explode(',', $linea);
+	if(file_exists('carritocompras.txt')){
+		$content = trim(file_get_contents('carritocompras.txt'), PHP_EOL);
+		$lineas = explode(PHP_EOL, $content);
+		$total=0;
+		foreach($lineas as $linea){
+			list($productoE, $precioE) = explode(',', $linea);
 ?>
 						<tr>
 							<td class="cart_product">
@@ -198,7 +199,7 @@
 								<p>Categoría</p>
 							</td>
 							<td class="cart_price">
-								<p><?php echo $precioE ?></p>
+								<p><?php echo "$ " . $precioE ?></p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
@@ -208,27 +209,28 @@
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price"><?php $precioE ?></p>
+								<p class="cart_total_price"><?php echo "$ " . $precioE ?></p>
 							</td>
 							<td class="cart_delete">
 								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
 						<?php 
-      }   //Cierra el Ciclo For
-      }     //Cierra la condición IF
-      ?>				
+						$total=$total+$precioE;
+		}   //Cierra el Ciclo For
+		}     //Cierra la condición IF
+		?>				
 						<tr>
 							<td colspan="4">&nbsp;</td>
 							<td colspan="2">
 								<table class="table table-condensed total-result">
 									<tr>
 										<td>Sub Total</td>
-										<td>$0</td>
+										<td><?php echo "$ " . $total; ?></td>
 									</tr>
 									<tr>
 										<td>Impuestos</td>
-										<td>$0</td>
+										<td><?php echo "$ " . $total * .16; ?></td>
 									</tr>
 									<tr class="shipping-cost">
 										<td>Costo de Envío</td>
@@ -236,7 +238,7 @@
 									</tr>
 									<tr>
 										<td>Total</td>
-										<td><span>$0</span></td>
+										<td><span><?php echo "$ " . $total+($total * .16); ?></span></td>
 									</tr>
 								</table>
 							</td>
@@ -296,10 +298,10 @@
 	
 
 
-    <script src="js/jquery.js"></script>
+	 <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
+	 <script src="js/jquery.scrollUp.min.js"></script>
+	 <script src="js/jquery.prettyPhoto.js"></script>
+	 <script src="js/main.js"></script>
 </body>
 </html>
