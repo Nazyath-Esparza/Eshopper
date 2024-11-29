@@ -183,13 +183,13 @@
 					</thead>
 					<tbody>
 						<?php 
-	if(file_exists('carritocompras.txt')){
-		$content = trim(file_get_contents('carritocompras.txt'), PHP_EOL);
-		$lineas = explode(PHP_EOL, $content);
-		$total=0;
-		foreach($lineas as $linea){
-			list($productoE, $precioE) = explode(',', $linea);
-?>
+	       $total=0;
+	       if(file_exists('carritocompras.txt')){
+		      $content = trim(file_get_contents('carritocompras.txt'), PHP_EOL);
+		       $lineas = explode(PHP_EOL, $content);
+		        foreach($lineas as $linea){
+			       list($productoE, $precioE) = explode(',', $linea);
+      ?>
 						<tr>
 							<td class="cart_product">
 								<a href=""><img src="images/cart/one.png" alt=""></a>
@@ -253,6 +253,7 @@
 					<span>
 						<label><input type="checkbox"> Paypal</label>
 					</span>
+					<a class="btn btn-primary" href="fpdf/ticket.php" target="_blank">Pagar</a>
 				</div>
 		</div>
 	</section> <!--/#cart_items-->

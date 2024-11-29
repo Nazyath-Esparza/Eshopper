@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <?php
-  /*$BDProductos = array( 
-    array(1, 2, 3, 4, 5, 6, 7 ),  //El ID
-    array("Blusa", "Lentes", "Playera", "Pantalón", "Vestido", "Zapatos", "Sudadera"), //La Descripción
-    array(100, 350, 200, 420, 250, 500, 450), //El Precio
-    array("Dama", "Caballero", "Caballero", "Dama", "Dama", "Dama", "Caballero")); //Categoría
-  $iProductos = 7; //Indica el No. de Productos*/
+ session_start();
+  $usuario = $_SESSION["usuario"];
+  $email = $_SESSION["email"];
 
  //Este segmento es el encargado de el almacenaje de los productos existentes en nuestro punto de venta, guarda sus datos en un documento .txt como lo son el ID, producto, precio y categoría
  $BDProductos = array(0,"CERO",0,"");
@@ -69,7 +66,10 @@
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
 								<li><a href="#"><i class="fa fa-phone"></i> +52 618 242 6667</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> atencionclientes@gmail.com</a></li>
+								<font color="green">
+        <li> Usuario: <?php echo $usuario; ?></li>
+         <li> Correo <i class="fa fa-envelope"></i>:<?php echo $email; ?></li>
+          </font>
 							</ul>
 						</div>
 					</div>
